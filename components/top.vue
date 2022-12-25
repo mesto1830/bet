@@ -6,12 +6,9 @@
     <Navbar id="navbar" />
     <div class="top-items top-last-item">
       <div @click="openChatHandel()" title="Chat">
-        <span v-if="lastMsg" class="msg-info">{{ lastMsg }}</span>
+        <span v-if="lastMsg" class="msg-info msgActiveClass">{{ lastMsg }}</span>
         <span v-else class="msg-info"><i class="fas fa-comments"></i></span>
-        <div v-if="lastMsg" class="msg-info-slide" :class="{ newMsgClass: isNewMsg }">
-          <i class="fa fa-comments fa-2x"></i>
-        </div>
-      </div>
+      </div> 
       <div class="po-r" @click="setMultiLogin" title="Çoklu Oturum İzni">
         <i v-if="multiLogin" class="fas fa-users fa-2x cp cl-g" />
         <i v-else class="fas fa-users fa-2x cp cl-r" />
@@ -21,7 +18,7 @@
       </div>
       <nuxt-link to="" class="navbar-logout cl-r" @click.native="logout" title="Çıkış">
         <i v-if="!isLoader" class="fas fa-sign-out-alt fa-2x" />
-        <img v-if="isLoader" src="~/static/img/loader.gif" class="mt10" alt="" />
+        <img v-if="isLoader" src="~/static/img/loader.gif" class="mt10" width="50" alt="" />
         <span v-if="errorMsg">{{ errorMsg }}</span>
       </nuxt-link>
       <nuxt-link to="/welcome" class="navbar-links mobile" exact-active-class="navbar-active">

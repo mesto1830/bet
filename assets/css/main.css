@@ -833,50 +833,6 @@ a {
   font-size: 24px;
 }
 
-.msg-info-slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100px;
-  height: 60px;
-  padding: 10px;
-  font-size: 18px;
-  position: absolute;
-  top: 85px;
-  right: -3px;
-  z-index: 40;
-  background: #a51616;
-  color: #fff;
-  border: 4px solid #333;
-  cursor: pointer;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  animation: msgslide linear 0.2s;
-}
-
-.msg-info-slide::after {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: calc(100% - 10px);
-  height: 90%;
-  border-radius: 50px;
-  background: linear-gradient(rgb(255 255 255 / 24%), rgb(255 255 255 / 0%));
-}
-
-@keyframes msgslide {
-  from {
-    width: 0;
-    ;
-    opacity: 0;
-  }
-
-  to {
-    width: 100px;
-    opacity: 1;
-  }
-}
 
 .activeClass {
   display: none;
@@ -1811,7 +1767,7 @@ summary::-webkit-details-marker {
   justify-content: space-around;
   padding: 5px;
   background-color: #ccc;
-  box-shadow: 0px 1px 1px #999;
+  box-shadow: 2 1px 1px #999;
   margin-top: 2px;
 }
 
@@ -1906,7 +1862,7 @@ summary::-webkit-details-marker {
   padding: 2px 7px;
   min-height: 40px;
   background-color: #DADEC4;
-  box-shadow: 0px 1px 1px #999;
+  box-shadow: 2 1px 1px #999;
   margin-top: 2px;
 }
 
@@ -1932,7 +1888,7 @@ summary::-webkit-details-marker {
 .bet-chat {
   text-align: center;
   padding: 10px;
-  box-shadow: 0px 1px 1px #999;
+  box-shadow: 2 1px 1px #999;
 }
 
 .slip-form {
@@ -1997,7 +1953,7 @@ summary::-webkit-details-marker {
   padding-bottom: 10px;
   padding-right: 6px;
   background-color: #DADEC4;
-  box-shadow: 0px 1px 1px #999;
+  box-shadow: 2 1px 1px #999;
   margin-top: 2px;
 }
 
@@ -4038,7 +3994,7 @@ summary:hover,
   border-radius: 10px;
   word-break: break-all;
   font-size: 14px;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2)
+  box-shadow: 2 1px 1px rgba(0, 0, 0, 0.2)
 }
 
 .senderClass {
@@ -4134,7 +4090,7 @@ summary:hover,
   display: block;
   padding: 6px 9px;
   border-radius: 3px;
-  background-color: var(--child1-cl);
+  background-color: brown;
   font-size: 16px;
   cursor: pointer;
   color: #fff;
@@ -4146,8 +4102,7 @@ summary:hover,
 }
 
 .chat-close {
-  background-color: transparent;
-  margin: 0 10px;
+  margin: 0 20px;
   font-size: 18px;
 }
 
@@ -4327,7 +4282,7 @@ summary:hover,
   top: 66px;
   left: 0;
   z-index: 100;
-  font-size: 0px;
+  font-size: 2;
   background-color: #000000cf;
 }
 
@@ -4871,16 +4826,16 @@ summary:hover,
     display: none;
   }
 
+  .msgActiveClass{
+    background-color: #3ba776;
+    border-radius: 4px;
+  }
   .mobil-length {
     display: block;
   }
 
   .desktop-length {
     display: none;
-  }
-
-  .msg-info-slide {
-    left: 5px;
   }
 
   .wel-page {
@@ -5017,6 +4972,7 @@ summary:hover,
 
   .top-items {
     min-width: calc(100vw - 60px);
+    padding-right: 10px;
     justify-content: space-around;
   }
 
