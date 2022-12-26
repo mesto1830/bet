@@ -5,7 +5,7 @@
         <div class="receiver-class" :class="{
           senderClass: list.sender === $store.state.auth.user, readstateClass: list.readed === 'yes' && list.sender === $store.state.auth.user, imageClass: list.type == 'image'
         }">
-          <audio v-if="list.type == 'audio'" class="record" controls style="height:30px;width:180px;">
+          <audio v-if="list.type == 'audio'" class="recordSender" controls style="height:30px;width:180px;">
             <source :src="`/uploads/${list.msg}`" type="audio/webm">
           </audio>
           <img v-if="list.type == 'image'" :src="`/uploads/${list.msg}`" alt="" class="imgMsg">

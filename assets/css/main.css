@@ -833,7 +833,9 @@ a {
   font-size: 24px;
 }
 
-
+.hasMsg{
+  color: #3ba776;
+}
 .activeClass {
   display: none;
 }
@@ -3986,12 +3988,11 @@ summary:hover,
   flex-direction: column;
   min-width: 120px;
   max-width: 200px;
-  max-height: 220px;
   min-height: max-content;
   text-align: left;
   background-color: aliceblue;
   padding: 7px 10px;
-  border-radius: 10px;
+  border-radius: 6px;
   word-break: break-all;
   font-size: 14px;
   box-shadow: 2 1px 1px rgba(0, 0, 0, 0.2)
@@ -4023,7 +4024,7 @@ summary:hover,
   display: inline-block;
   content: "\2713";
   position: absolute;
-  top: 3px;
+  bottom: 3px;
   right: 5px;
   z-index: 20;
   color: #3BA776;
@@ -4036,12 +4037,12 @@ summary:hover,
 .readstateClass::after {
   content: "\2713";
   position: absolute;
-  top: 3px;
+  bottom: 3px;
   right: 10px;
   z-index: 20;
   color: #3BA776;
 }
-
+.recordSender{background-color: transparent;}
 .chatOnlinClass {
   display: inline-block;
   position: absolute;
@@ -4058,8 +4059,8 @@ summary:hover,
 
 .chat-date {
   font-size: 8px;
-  padding: 2px;
   margin-top: 5px;
+  margin-right: 15px;
   align-self: flex-end;
 }
 
@@ -4102,7 +4103,7 @@ summary:hover,
 }
 
 .chat-close {
-  margin: 0 20px;
+  margin: 0 10px;
   font-size: 18px;
 }
 
@@ -4826,10 +4827,7 @@ summary:hover,
     display: none;
   }
 
-  .msgActiveClass{
-    background-color: #3ba776;
-    border-radius: 4px;
-  }
+ 
   .mobil-length {
     display: block;
   }
@@ -5009,6 +5007,9 @@ summary:hover,
 
   #top-menu-mini {
     display: none;
+  }
+  .chat-close {
+    margin: 0 20px;
   }
 }
 

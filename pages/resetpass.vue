@@ -3,7 +3,7 @@
     <transition name="slayt" appear>
       <form class="resetpass-form" @submit.prevent="resetPass">
         <header class="login-header">
-          <h2 class="logo-login">Logo</h2>
+          <img src="~/static/img/logo.png" alt="" class="login-logo">
         </header>
         <div class="login-center">
           <input

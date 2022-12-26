@@ -6,7 +6,7 @@
     <Navbar id="navbar" />
     <div class="top-items top-last-item">
       <div @click="openChatHandel()" title="Chat">
-        <span v-if="lastMsg" class="msg-info msgActiveClass">{{ lastMsg }}</span>
+        <span v-if="lastMsg" class="msg-info hasMsg"><i class="fas fa-comments">{{ lastMsg }}</i></span>
         <span v-else class="msg-info"><i class="fas fa-comments"></i></span>
       </div> 
       <div class="po-r" @click="setMultiLogin" title="Çoklu Oturum İzni">
