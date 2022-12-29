@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 mongoose.set('strictQuery', true)
-const db = mongoose.connect('mongodb://mesto:9090@localhost:27017/gasvet?authSource=gasvet',{
+const db = mongoose.connect('mongodb://gasvet:9090@localhost:27017/gasvet?authSource=gasvet',{
   useNewUrlParser:true
 }).then(()=>{
   console.log('Connected')

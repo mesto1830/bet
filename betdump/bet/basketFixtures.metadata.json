@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"AwayTeam":{"$numberInt":"1"}},"name":"AwayTeam_1"},{"v":{"$numberInt":"2"},"key":{"HomeTeam":{"$numberInt":"1"}},"name":"HomeTeam_1"}],"uuid":"22053b563c674a0eb03f16ec7c6d9ce8","collectionName":"basketFixtures","type":"collection"}
