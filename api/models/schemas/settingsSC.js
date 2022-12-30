@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
 const settingsSC = new mongoose.Schema({
-  user:{type: String},
-  admin:{type: String},
-  type:{type: String},
-  operate:{type: String},
-  filterid:{type: Number},
-  rate:{type: Number}
+  user:{type: String, lovercase: true, trim:true},
+  admin:{type: String, lovercase: true, trim:true},
+  type:{type: String, lovercase: true, trim:true},
+  operate:{type: String, lovercase: true, trim:true},
+  filterid:{type: Number, trim:true},
+  rate:{type: Number, trim:true}
 })
 
 module.exports = mongoose.model('settings', settingsSC)
