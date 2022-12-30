@@ -22,7 +22,7 @@
             <option value="aktif" selected>Aktif</option>
             <option value="pasif">Pasif</option>
           </select>
-          <i v-if="save === 'state'" class="fa fa-thumbs-up fa-2x cl-g slbs mBoss5" />
+          <i v-if="save === 'state'" class="fa fa-thumbs-up fa-2x cl-g slbs" />
           <i v-if="save !== 'state'" class="fa fa-save fa-2x edit-save cl-f"  @click="updateState()"/>
         </li>
         <li v-if="checkSuperadmin || checkBoss" class="userdetails-items">
@@ -30,12 +30,12 @@
           <div class="form-rows nick-input">
             <span class="edit-value">{{ users.payment | fullFormat }}</span>
           </div>
-          <i v-if="done === 'payment'" class="fa fa-thumbs-up fa-2x cl-g slbs mBoss5"  />
+          <i v-if="done === 'payment'" class="fa fa-thumbs-up fa-2x cl-g slbs"  />
           <i v-if="done !== 'payment'" class="fa fa-save fa-2x edit-save cl-f" @click="updatePayment()"/>
         </li>
         <li class="userdetails-trash">
-          <i v-if="!isLoader" class="fa fa-trash fa-2x cl-r"  @click="isWarningOpen = true"/>
-          <img v-if="isLoader" src="~/static/img/loader.gif" alt="">
+          <i v-if="!isLoader" class="fa fa-trash fa-2x cl-r"  @click="deleteUser(users._id)"/>
+          <img v-if="isLoader" src="~/static/img/loader.gif" alt="" class="welcome-loader">
         </li>
       </section>
 
@@ -54,7 +54,7 @@
           <i class="fas fa-plus-square  fa-2x cl-g slbs" @click="updateCreditRemain('arti')"/>
         </div>
         <img src="~/static/img/loader.gif" alt="" v-if="done === 'ucstart'" class="ml10">
-        <i v-if="done === 'ucdone'" class="fa fa-thumbs-up fa-2x cl-g slbs mBoss0" />
+        <i v-if="done === 'ucdone'" class="fa fa-thumbs-up fa-2x cl-g slbs" />
       </li>
       <li v-if="errorcredit" class="userdetails-items cl-r">{{ errorcredit }}</li>
     </section>
@@ -73,7 +73,7 @@
           <i class="fas fa-plus-square  fa-2x cl-g slbs" @click="updateCreditRemain('arti')"/>
         </div>
         <img v-if="done === 'ucstart'" src="~/static/img/loader.gif" alt=""  class="ml10">
-        <i v-if="done === 'ucdone'" class="fa fa-thumbs-up fa-2x cl-g slbs mBoss0" />
+        <i v-if="done === 'ucdone'" class="fa fa-thumbs-up fa-2x cl-g slbs" />
       </li>
       <li v-if="errorcredit" class="userdetails-items cl-r">{{ errorcredit }}</li>
     </section>
@@ -82,7 +82,7 @@
       <li class="userdetails-items">
         <span class="userdetails-text">Üye Limiti</span>
         <input v-model="users.userlimit" type="number" class="selectbox box-set">
-        <i v-if="done === 'limit'" class="fa fa-thumbs-up fa-2x cl-g slbs mBoss5" />
+        <i v-if="done === 'limit'" class="fa fa-thumbs-up fa-2x cl-g slbs" />
         <i v-if="done !== 'limit'" class="fa fa-save fa-2x edit-save cl-f" @click="updateUserLimit(users.userlimit)"/>
       </li>
       <li class="userdetails-items">
@@ -91,17 +91,6 @@
       </li>
     </section>
   </ul>
-<!-- general warning------------------------------- -->
-    <div v-if="isWarningOpen" class="bet-details-model">
-      <div  class="dialog warning warning-user">
-        <header class="cancelbet-header"><span class="cancelbet-no">{{users.user}}</span></header>
-          <p class="warning-text">Bu kullanıcıyı ona ait tüm bilgiler silinecektir!</p>
-        <footer class="dialog-footer">
-          <input type="button" value="Vazgeç" class="btn-dialog bg-r" @click="isWarningOpen = false">
-          <input type="button" value="Sil" class="btn-dialog bg-g" @click="deleteUser($route.params.id)">
-        </footer>
-      </div>
-    </div>
   </div>
 </template>
 <script>
@@ -113,7 +102,6 @@ export default {
     return {
       users: {},
       isLoader: false,
-      isWarningOpen: false,
       errorcredit:'',
       updateAmount:null,
       save:'',
@@ -186,21 +174,23 @@ export default {
       })
     },
     async deleteUser (id) {
-      this.isWarningOpen = false
-      this.isLoader = true
-      await axios.delete('/api/home/account/usersdelete/' + id).then((result) => {
-        if (result.data.code === 200) {
-          setTimeout(() =>{
-            this.$router.push('/home/account/users')
-          }, 1000)
-        } else {
-          this.error = result.data.message
-          this.isLoader = false
-          setTimeout(() =>{
-            this.error = ''
-          }, 3000)
-        }
-      })
+      const cfm = confirm('Bu kullanıcıyı ait tüm bilgiler silinecektir!')
+      if(cfm){
+        this.isLoader = true
+        await axios.delete('/api/home/account/usersdelete/' + id).then((result) => {
+          if (result.data.code === 200) {
+            setTimeout(() =>{
+              this.$router.push('/home/account/users')
+            }, 1000)
+          } else {
+            this.error = result.data.message
+            this.isLoader = false
+            setTimeout(() =>{
+              this.error = ''
+            }, 3000)
+          }
+        })
+      }
     },
     async updateUserLimit (value) {
       if(value && value > 0){

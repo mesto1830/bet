@@ -51,7 +51,7 @@
         </div>
         <footer class="form-footer register">
           <button v-if="isBtnReg && !isLoader" class="btn-reg bg-g">Ekle</button>
-          <img src="~/static/img/loader.gif" alt="" v-if="isLoader">
+          <img src="~/static/img/loader.gif" alt="" v-if="isLoader" class="welcome-loader">
           <alert v-if="alert" :message="alert" class="alert"/>
           <error v-if="error" :message="error" class="error"/>
         </footer>

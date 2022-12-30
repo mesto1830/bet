@@ -94,7 +94,11 @@ export default {
     },
     async setMultiLogin() {
       this.multiLogin = !this.multiLogin;
-      await axios.post("/api/multilogin", { multilogin: this.multiLogin });
+      await axios.post("/api/multilogin", { multilogin: this.multiLogin }).then(result => {
+        if(result.data.code == 200){
+          this.logout()
+        }
+      });
     },
     checkRole() {
       if (this.$store.state.auth) {

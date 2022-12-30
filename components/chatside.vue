@@ -3,8 +3,8 @@
     <ul ref="chatarea" class="chat-area">
       <li v-for="list in msgHistory" :key="list.id" class="chat-list">
         <div class="receiver-class" :class="{
-          senderClass: list.sender === $store.state.auth.user, readstateClass: list.readed === 'yes' && list.sender === $store.state.auth.user, imageClass: list.type == 'image'
-        }">
+  senderClass: list.sender === $store.state.auth.user, readstateClass: list.readed === 'yes' && list.sender === $store.state.auth.user, imageClass: list.type == 'image'
+}">
           <audio v-if="list.type == 'audio'" class="recordSender" controls style="height:30px;width:180px;">
             <source :src="`/uploads/${list.msg}`" type="audio/webm">
           </audio>
@@ -15,11 +15,11 @@
       </li>
       <li v-for="list in currentMessage" :key="list.id" class="chat-list">
         <div class="receiver-class"
-        :class="{ senderClass: list.sender === $store.state.auth.user, imageClass: list.type == 'image' }">
+          :class="{ senderClass: list.sender === $store.state.auth.user, imageClass: list.type == 'image' }">
           <audio v-if="list.type == 'audio'" class="record" controls style="height:30px;width:180px;">
             <source :src="`/uploads/${list.message}`" type="audio/webm">
           </audio>
-          <img  v-if="list.type == 'image'" :src="`/uploads/${list.message}`" alt="" class="imgMsg" />
+          <img v-if="list.type == 'image'" :src="`/uploads/${list.message}`" alt="" class="imgMsg" />
           <span v-if="list.type == 'text'" class="chat-text">{{ list.message }}</span>
           <span class="chat-date">{{ list.date | dateFormat }}</span>
           <span v-if="list.onlinestate" class="chatOnlinClass">&#10003;</span>
@@ -29,8 +29,8 @@
     <ul class="emoji-con" v-if="emojiHandle">
       <li v-for="emojilist in emoji" :key="emojilist.id" class="emoji-list">
         <span class="emoji" @click="addEmoji(emojilist.id)">{{
-            emojilist.emoji
-        }}</span>
+    emojilist.emoji
+}}</span>
       </li>
     </ul>
     <footer class="chat-footer">
@@ -46,8 +46,10 @@
       </span>
       <span class="dropdown">
         <form @submit.prevent="sendAudio" enctype="multipart/form-data">
-          <span class="chat-btn cl-r btn-upload" @mousedown="recordAudio" @mouseup="stopAudio">&#x1F3A4;</span>
-        </form> 
+          <span class="chat-btn btn-upload" @click="recordState()">
+            <i class="fas fa-microphone" :class="{ recordStartClass: recordStart }"></i>
+          </span>
+        </form>
       </span>
 
       <i class="fas fa-paper-plane chat-btn cl-g btn-msg" @click="sendMsg()"></i>
@@ -104,7 +106,8 @@ export default {
       ],
       type: 'text',
       timeout: '',
-      recorder: ''
+      recorder: '',
+      recordStart: false
     };
   },
   mounted() {
@@ -153,15 +156,15 @@ export default {
     async deleteMsg() {
       if (this.currentMessage != "" || this.msgHistory != "") {
         const cfm = confirm('Mesajlar kalıcı olarak silinecektir!')
-        if(cfm){
+        if (cfm) {
           await axios.post("/api/home/deletemsgall", {
             sender: this.$store.state.auth.user,
             receiver: this.selectedUser,
           }).then((result) => {
             this.currentMessage = [];
             this.msgHistory = "";
-            document.querySelector('.chat-area').innerText = ''
           })
+          document.querySelector('.chat-area').innerHTML = ''
         }
       } else {
         alert('Silinicek mesaj yoktur!')
@@ -180,10 +183,10 @@ export default {
         this.message = ""
         this.scrollToBottom()
 
-        if(this.recordedAudio){
+        if (this.recordedAudio) {
           this.sendAudio()
         }
-        if(this.selectedImage){
+        if (this.selectedImage) {
           this.sendImage()
         }
         this.type = 'text'
@@ -241,7 +244,7 @@ export default {
           chunks.push(e.data)
           if (this.recorder.state === 'inactive') {
             this.recordedAudio = new Blob(chunks, { type: 'audio/webm' })
-            this.message = this.$store.state.auth.user + '-' + this.selectedUser +'-'+ this.recordedAudio.size +'.mp3'
+            this.message = this.$store.state.auth.user + '-' + this.selectedUser + '-' + this.recordedAudio.size + '.mp3'
             this.type = 'audio'
           }
         }
@@ -250,12 +253,24 @@ export default {
         this.recorder.start()
       }, 100)
     },
-    stopAudio() {
-      this.recorder.stop()
-      clearInterval(this.timeout)
+    recordState() {
+      this.recordStart = !this.recordStart
+      this.recordStart ? this.recordAudio() : this.stopAudio()
     },
-    async sendAudio(){
-      let fileName = this.$store.state.auth.user + '-' + this.selectedUser +'-'+ this.recordedAudio.size +'.mp3'
+    stopAudio() {
+      if (null != this.recorder) {
+        try {
+          if (this.recorder.state === 'inactive') return
+          this.recorder.stop()
+          clearInterval(this.timeout)
+        } catch (RuntimeException) {
+          alert(RuntimeException)
+        }
+      }
+
+    },
+    async sendAudio() {
+      let fileName = this.$store.state.auth.user + '-' + this.selectedUser + '-' + this.recordedAudio.size + '.mp3'
       const form = new FormData()
       form.append('file', this.recordedAudio, fileName)
       await axios.post('/api/home/addaudio', form)

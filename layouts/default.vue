@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       scrollState: false,
-      scrollPosition: 550,
+      scrollPosition: 534,
     };
   },
   mounted() {
@@ -34,7 +34,7 @@ export default {
         window.scrollTo(0, 100);
         return
       }
-      window.scrollTo(0, 550);
+      window.scrollTo(0, 534);
     }
   },
   destroy() {
@@ -42,7 +42,8 @@ export default {
   },
   watch: {
       $route() {
-        window.scrollTo(0, 550);
+        window.scrollTo(0, 534);
+        this.scrollState = false;
       },
     },
 };

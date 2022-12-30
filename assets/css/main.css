@@ -8,14 +8,9 @@
 #app {
   min-width: calc(100vw - 10px);
 }
-
 html,
 body {
   text-size-adjust: none;
-}
-
-html::-webkit-scrollbar {
-  width: 0;
 }
 
 body::-webkit-scrollbar,
@@ -28,10 +23,9 @@ body::-webkit-scrollbar,
 body::-webkit-scrollbar-thumb,
 .tab-content::-webkit-scrollbar-thumb,
 .suboptions-con::-webkit-scrollbar-thumb {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-image: var(--child1);
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: var(--child1);
 }
 
 :root {
@@ -85,7 +79,6 @@ body::-webkit-scrollbar-thumb,
 }
 
 .home-wrapper {
-  padding: 0 20px;
   background-image: url('../../static/img/home-wrapper.jpg');
   background-size: cover;
 }
@@ -700,7 +693,7 @@ a {
 .home-router {
   width: 100%;
   min-height: 500px;
-  margin: 10px 0;
+  margin-top: 5px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   background-color: #f1f1f1;
@@ -931,17 +924,15 @@ a {
 
 .selectbox1 {
   width: 120px;
-  padding: 4px 5px;
+  padding: 2px 5px;
   padding-left: 10px;
   line-height: 1;
   border: 1px solid #444;
   outline: none;
   border-radius: 3px;
   font-size: 15px;
-  background-image: url("../../static/img/goster.png");
   background-repeat: no-repeat;
   background-position: 85px;
-  appearance: none;
 }
 
 .selectbox1-left {
@@ -952,12 +943,6 @@ a {
 .live-logos {
   display: flex;
   align-items: center;
-}
-
-.sct {
-  width: 140px;
-  background-position: 105px;
-  appearance: none;
 }
 
 .box-slip {
@@ -3169,14 +3154,10 @@ summary:hover,
   min-width: 320px;
 }
 
-.warning-user {
-  min-width: 340px;
-}
-
 .warning-text {
   width: 100%;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
   padding-bottom: 5px;
   margin: 15px 0;
@@ -3192,8 +3173,8 @@ summary:hover,
 .cancelbet-no {
   font-size: 30px;
   padding: 5px 15px;
-  background-color: gainsboro;
   border-radius: 5px;
+  color: #f1f1f1;
 }
 
 .dialog-score {
@@ -4015,11 +3996,6 @@ summary:hover,
   background-color: none;
   padding: 0;
 }
-
-.imageClass {
-  padding: 0;
-}
-
 .senderClass::before {
   display: inline-block;
   content: "\2713";
@@ -4124,7 +4100,12 @@ summary:hover,
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
-
+.fa-microphone{
+  color:brown;
+}
+.recordStartClass{
+  color:mediumseagreen;
+}
 .dropdown-item {
   display: block;
   min-height: 18px;
@@ -4178,7 +4159,7 @@ summary:hover,
 .chat-btn {
   cursor: pointer;
   margin-right: 10px;
-  font-size: 28px;
+  font-size: 140%;
 }
 
 .chat-trash {
@@ -4809,10 +4790,6 @@ summary:hover,
 
   .register {
     justify-content: flex-start;
-  }
-
-  .warning {
-    left: 18px;
   }
 
   .warning-bet {
