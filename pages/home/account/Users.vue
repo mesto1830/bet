@@ -1,8 +1,10 @@
 <template>
   <div v-if="checkRole" class="pages">
     <header class="title-2">
-      <span class="account-title-text">Üyeler</span>
-        <span class="badge bg-g mr10">{{ users.length }}</span>
+      <span class="account-page-title">Üyeler</span>
+      <section>
+         <span class="badge bg-g">{{ users.length }}</span>
+      </section>
     </header>
     <ul>
       <li class="title-ligth">
@@ -18,15 +20,15 @@
       <li v-for="list in users" :key="list._user">
         <nuxt-link class="list" :to="'/home/account/users/' + list.user">
           <span class="uitems-list uowner">
-            <i class="fa fa-user fa-lg ml10 mr10 cl-g"/>
+            <i class="fa fa-user fa-lg cl-g"/>
             {{ list.user | capitalize }} 
-            <span v-if="list.role === 'Subadmin'" class="cl-r ml5"> ( gb )</span>
+            <span v-if="list.role === 'Subadmin'" class="cl-r"> ( gb )</span>
           </span>
           <span class="uitems-list">{{ list.admin | capitalize}}</span>
           <span v-if="checkAdmin || checkSubadmin" class="uitems-list">
             {{ list.creditremain | currency('', 0) }}
             <div v-if="list.role === 'Subadmin' && list.subcredit">
-              <span class="cl-r subcredit ml5">( {{list.subcredit | currency('', 0)}} )</span>
+              <span class="cl-r subcredit">( {{list.subcredit | currency('', 0)}} )</span>
             </div>
           </span>
           <span v-if="checkRole" class="uitems-list">{{ list.userlimit }} / {{ (list.userlimit - list.usedlimit) }}</span>

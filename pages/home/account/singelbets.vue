@@ -2,22 +2,22 @@
   <div class="pages">
     <div>
       <header class="title-2">
-        <span class="set-title">Tek Maça Kalanlar</span>
-        <div class="quick-report cl-g">
+        <span class="account-page-title">Tek Maça Kalanlar</span>
+        <span class="badge bg-g">{{ betSummary.length }}</span>
+        <section class="quick-report cl-g">
           <div>
-            <span class="mr10">Adet:</span>
+            <span>Adet:</span>
             <span class="cl-y">{{ totalCount }}</span>
           </div>
           <div>
-            <span class="mr10">Girdi:</span>
+            <span>Girdi:</span>
             <span class="cl-y">{{ totalAmount | currency("", 2) }}</span>
           </div>
           <div>
-            <span class="mr10">Kazanç:</span>
+            <span>Kazanç:</span>
             <span class="cl-y">{{ totalEarn | currency("", 2) }}</span>
           </div>
-        </div>
-        <span class="badge bg-g">{{ betSummary.length }}</span>
+        </section>
       </header>
       <div class="bet-con">
         <ul>

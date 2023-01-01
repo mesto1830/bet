@@ -1,6 +1,8 @@
 <template>
   <div class="pages">
-    <h2 class="title-3" >Genel Bahis Kuralları</h2>
+    <header class="title-2">
+      <span class="account-page-title">Genel Bahis Kuralları</span>
+    </header>
     <div class="main-set-list">
       <section class="user-id-section">
         <table>

@@ -1,8 +1,7 @@
 <template>
   <div class="pages">
     <header class="title-2">
-      <span class="set-title">Profil</span>
-      <i class="fas fa-angle-double-up back-icons"/>
+      <span class="account-page-title">Profil</span>
     </header>
     <ul class="account-con">
 <!-- general info section ---------------------------------->
@@ -14,7 +13,7 @@
         <li class="userdetails-items po-r">
           <span class="userdetails-text">Kod Ad</span>
           <div class="form-rows">
-            <input v-model="profile.nick" type="text" class="set-inp inp-profile" required>
+            <input v-model="profile.nick" type="text" required />
           </div>
             <span class="info" title="Bu alan şifre sıfırlama için özeldir.Lütfen kimseyle paylaşmayınız!">?</span>
             <i class="fa fa-thumbs-up fa-2x cl-g slbs mb15" v-if="done === 'nick'"/>

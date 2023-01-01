@@ -1,11 +1,13 @@
 <template>
   <div class="pages">
     <header class="title-2">
-      <span class="set-title">Kupon Raporu</span>
-      <select v-if="checkAdmin || checkSubadmin" v-model="userBox" class="selectbox box-account" @change="getDetailsInfo()">
-        <option value="Üyeler" selected>Üyeler</option>
-        <option v-for="list in userList" :value="list.user" :key="list.id">{{ list.user }}</option>
-      </select>
+      <span class="account-page-title">Hesap Detay</span>
+      <section>
+        <select v-if="checkAdmin || checkSubadmin" v-model="userBox" @change="getDetailsInfo()">
+          <option value="Üyeler" selected>Üyeler</option>
+          <option v-for="list in userList" :value="list.user" :key="list.id">{{ list.user }}</option>
+        </select>
+      </section>
     </header>
     <div class="account-con">
       <i class="fas fa-chart-bar fa-4x cl-g big-icon"/>

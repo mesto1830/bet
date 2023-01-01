@@ -2,29 +2,22 @@
   <div v-if="checkRole" class="pages">
     <header class="title-2">
       <div>
-        <i class ="fas fa-user-plus fa-lg cl-g" />
-        <span class="reg-text">Üye Ekle</span>
+        <span class="account-page-title">Üye Ekle</span>
       </div>
     </header>
     <div class="account-con">
       <i class="fas fa-user-plus fa-4x cl-g big-icon"/>
       <form class="user-id-section" @submit.prevent="register">
-        <div class="reg-rows">
-          <input type="text" v-model="setUser.user"  @focus="removeError()" maxlength = "50" required pattern="^[A-Za-z-0-9].{3,50}" oninvalid="this.setCustomValidity('Üye alanı en az 4 karekter ve ilk karekter Harf yada Sayı olabilir!')" oninput="setCustomValidity('')" class="reg-inp" placeholder="Ad">
+        <input type="text" v-model="setUser.user" class="register-input-text"  @focus="removeError()" maxlength = "50" required pattern="^[A-Za-z-0-9].{3,50}" oninvalid="this.setCustomValidity('Üye alanı en az 4 karekter ve ilk karekter Harf yada Sayı olabilir!')" oninput="setCustomValidity('')" placeholder="Ad">
+        <input type="text" v-model="setUser.nick" class="register-input-text" @focus="removeError()" maxlength = "50" required pattern="^[A-Za-z-0-9].{3,50}" oninvalid="this.setCustomValidity('Nick alanı en az 4 karekter ve ilk karekter Harf yada Sayı olabilir!')" oninput="setCustomValidity('')" placeholder="Kod Ad">
+        <input type="text" v-model="setUser.pass" class="register-input-text" maxlength = "50" required pattern=".{4,50}" oninvalid="this.setCustomValidity('Şifre en az 4 karekter olabilir!')" oninput="setCustomValidity('')" placeholder="Şifre">
+        <div v-if="checkAdmin || checkSubadmin">
+          <input type="number" v-model="setUser.credit" class="register-input-text" min="50" required oninvalid="this.setCustomValidity('Minumum Kredi Tutarı 50 Tl olabilir!')" oninput="setCustomValidity('')" placeholder="Bakiye">
         </div>
-        <div class="reg-rows">
-          <input type="text" v-model="setUser.nick" @focus="removeError()" maxlength = "50" required pattern="^[A-Za-z-0-9].{3,50}" oninvalid="this.setCustomValidity('Nick alanı en az 4 karekter ve ilk karekter Harf yada Sayı olabilir!')" oninput="setCustomValidity('')" class="reg-inp" placeholder="Kod Ad">
-        </div>
-        <div class="reg-rows">
-          <input type="text" v-model="setUser.pass" maxlength = "50" required pattern=".{4,50}" oninvalid="this.setCustomValidity('Şifre en az 4 karekter olabilir!')" oninput="setCustomValidity('')" class="reg-inp" placeholder="Şifre">
-        </div>
-        <div v-if="checkAdmin || checkSubadmin" class="reg-rows">
-          <input v-model="setUser.credit" type="number" min="50" required oninvalid="this.setCustomValidity('Minumum Kredi Tutarı 50 Tl olabilir!')" oninput="setCustomValidity('')" class="reg-inp" placeholder="Bakiye">
-        </div>
-        <div v-if="!checkAdmin && !checkSubadmin" class="reg-rows">
-          <span class="reg-select-text">Üye Limiti</span>
-          <select v-model="setUser.userlimit" class="selectbox ml10" required oninvalid="this.setCustomValidity('Limit alanı boş bırakılamaz!')" oninput="setCustomValidity('')">
-            <option value="5">5</option>
+        <section v-if="!checkAdmin && !checkSubadmin">
+          <span class="account-text">Üye Limiti</span>
+          <select v-model="setUser.userlimit" class="selectbox-account" required oninvalid="this.setCustomValidity('Limit alanı boş bırakılamaz!')" oninput="setCustomValidity('')">
+            <option value="5" selected>5</option>
             <option value="10">10</option>
             <option value="15">15</option>
             <option value="20">20</option>
@@ -32,14 +25,16 @@
             <option value="40">40</option>
             <option value="50">50</option>
           </select>
-        </div>
+        </section>
         <div v-if="checkAdmin" class="sub-user">
-          <input v-model="setUser.customer" type="checkbox" class="check-inp">
-          <span class="customer-text">Gold Bayi</span>
-          <div v-if="setUser.customer" class="reg-rows">
-            <span class="reg-select-text">Üye Limiti</span>
-            <select v-model="setUser.userlimit" class="selectbox ml10" required oninvalid="this.setCustomValidity('Limit alanı boş bırakılamaz!')" oninput="setCustomValidity('')">
-              <option value="5">5</option>
+          <section>
+            <input v-model="setUser.customer" type="checkbox" class="check-inp">
+            <span class="customer-text">Gold Bayi</span>
+          </section>
+          <section v-if="setUser.customer">
+            <span class="account-text">Üye Limiti</span>
+            <select v-model="setUser.userlimit" class="selectbox-account" required oninvalid="this.setCustomValidity('Limit alanı boş bırakılamaz!')" oninput="setCustomValidity('')">
+              <option value="5" selected>5</option>
               <option value="10">10</option>
               <option value="15">15</option>
               <option value="20">20</option>
@@ -47,10 +42,10 @@
               <option value="40">40</option>
               <option value="50">50</option>
             </select>
-          </div>
+          </section>
         </div>
         <footer class="form-footer register">
-          <button v-if="isBtnReg && !isLoader" class="btn-reg bg-g">Ekle</button>
+          <button v-if="isBtnReg && !isLoader" class="btn-set bg-g">Ekle</button>
           <img src="~/static/img/loader.gif" alt="" v-if="isLoader" class="welcome-loader">
           <alert v-if="alert" :message="alert" class="alert"/>
           <error v-if="error" :message="error" class="error"/>

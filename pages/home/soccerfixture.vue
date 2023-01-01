@@ -1,13 +1,13 @@
 <template>
   <div class="pages main-page">  
     <div class="odd-center">
-     <div class="title-2">
-       <div class="title-2-left">
+      <header class="title-2">
+       <section class="title-2-left">
          <span class="title-icons"><i class="fas fa-futbol navbar-icons cl-g" />Futbol</span>
          <span class="badge bg-g">{{leaguesLength}}</span>
          <i class="fas fa-adjust navbar-icons cp" @click="isLeagueOpen =! isLeagueOpen" title="Aç Kapa"/>
          <i class="fas fa-globe fa-lg cp cl-g" @click="resetFav()" title="Hepsi"/>
-       </div>
+       </section>
        <input v-model="searchBox" type="search"  @input="searchFilter()" placeholder="ara...">
        {{getRateToggle}}
        <select v-model="timeBox" @change="filterAsTime()">
@@ -28,7 +28,7 @@
          <option :value="$moment().add(2,'days').format('YYYY-MM-DD')">3. Gün</option>
          <option :value="$moment().add(3,'days').format('YYYY-MM-DD')">4. Gün</option>
        </select>
-      </div>
+      </header>
       <div class="odd-center-con">
         <div>
           <details :open="isLeagueOpen" class="odd-details cp" v-for="(list, index) in leagues" :key="index">

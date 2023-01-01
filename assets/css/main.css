@@ -35,25 +35,49 @@ body::-webkit-scrollbar-thumb,
   --red: #b90e0e;
 }
 
-input[type="search"], select{
+input[type="search"],
+select,
+input[type="date"]{
   width: 100%;
   min-height: 26px;
   padding-left: 5px;
   border-radius: 3px;
   border: none;
 }
+.selectbox-account{
+  width: 50%;
+  min-height: 26px;
+  padding-left: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+.register-input-text{
+  width: 100%;
+  min-height: 38px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin: 5px 0;
+  padding-left: 10px;
+  background-color: #f1f1f1;
+}
 .fa-lg{font-size: 24px;}
+.fa-user{margin:0 10px;}
 .flags {
   width: 28px;
   height: 28px;
   margin-right: 5px;
 }
 .badge {
-  min-width: 28px;
-  min-height: 22px;
-  line-height: 22px;
+  min-width: fit-content;
+  min-height: 24px;
+  line-height: 24px;
+  padding:0 6px;
   text-align: center;
   border-radius: 3px;
+}
+.account-text {
+  font-size: 18px;
+  margin:0 10px;
 }
 #main-wrapper {
   display: flex;
@@ -277,13 +301,21 @@ a {
   border-top-right-radius: 6px;
   background-color: var(--main);
 }
-.title-2-left{
+.title-2 > section,
+.sub-user > section{
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin: 0 10px;
 }
-.title-2 > select, .title-2 > input {
+.sub-user > section{
+  justify-content: flex-start;
+}
+.title-2 > select,
+.title-2 > input,
+.title-2-sub-item > span,
+.title-2-sub-item > input[type="date"]{
   margin: 0 10px;
 }
 .title-icons {
@@ -561,12 +593,9 @@ a {
   padding-left: 20px;
 }
 
-.set-title {
-  margin-left: 10px;
-}
-
-.set-title-history {
-  min-width: 180px;
+.account-page-title{
+  min-width: fit-content;
+  margin-right: 10px;
 }
 
 .cp {
@@ -926,23 +955,6 @@ a {
   background-color: silver;
 }
 
-.selectbox,
-.box-account,
-.bet-box {
-  padding: 2px;
-  border: none;
-  border: 1px solid #999;
-  border-radius: 3px;
-  outline: none;
-  background-color: #f1f1f1;
-}
-
-
-.selectbox1-left {
-  width: 100px;
-  background-position: 75px;
-}
-
 .live-logos {
   display: flex;
   align-items: center;
@@ -963,12 +975,6 @@ a {
   height: 25px;
   background-color: #262626;
   background-image: none;
-}
-
-.selectbox1-soccer {
-  width: 120px;
-  background-position: 80px;
-  appearance: none;
 }
 
 .box-account {
@@ -2596,19 +2602,6 @@ summary:hover,
   font-size: 105%;
 }
 
-.quick-report-con {
-  display: flex;
-  align-items: center;
-  min-width: 600px
-}
-
-.quick-report {
-  display: flex;
-  justify-content: space-evenly;
-  min-width: 450px;
-  font-size: 17px;
-}
-
 .qrcom {
   min-width: 600px;
 }
@@ -2695,14 +2688,6 @@ summary:hover,
   height: 20px;
   border-radius: 3px;
   padding-left: 5px;
-}
-
-.reg-rows {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 30px;
-  margin: 20px 0;
 }
 
 .reg-icon {
@@ -2988,22 +2973,6 @@ summary:hover,
   border-radius: 3px;
   border: none;
   background-color: #f1f1f1;
-}
-
-.btn-date {
-  min-width: 34px;
-  min-height: 23px;
-  box-sizing: border-box;
-  cursor: pointer;
-  border: none;
-  border-radius: 3px;
-  background-color: var(--child1);
-  color: #fff;
-  padding: 0 5px;
-}
-
-.btn-date:hover {
-  transform: scale(1.1);
 }
 
 .fa-calendar-alt {
@@ -3475,11 +3444,7 @@ summary:hover,
   margin: 20px;
 }
 
-.reg-select-text {
-  font-size: 18px;
-  color: #555;
-  margin-left: 5px;
-}
+
 
 .sec-text {
   width: 400px;
@@ -3571,27 +3536,6 @@ summary:hover,
 .sk,
 .sa {
   width: 160px;
-}
-
-.reg-inp {
-  width: 100%;
-  height: 36px;
-  padding-left: 5px;
-  font-size: 105%;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #ccc;
-  background-color: #f2f2f2;
-}
-
-.inp:focus,
-.bet-inp:focus,
-.credit-inp:focus,
-.set-inp:focus,
-.reg-inp:focus,
-.rate-inp:focus {
-  box-shadow: inset 1px 1px 2px #555;
-  border-radius: 3px;
 }
 
 .check-inp:checked {
@@ -4426,13 +4370,6 @@ summary:hover,
 
 .suspendColor {
   background: #9c3e3e;
-}
-
-.date-con {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-width: 75px;
 }
 
 .slipSuspend {

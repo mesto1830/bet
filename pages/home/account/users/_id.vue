@@ -18,7 +18,7 @@
         </li>
         <li class="userdetails-items">
           <span class="userdetails-text">Durum</span>
-          <select v-model="users.state" class="selectbox box-set">
+          <select v-model="users.state" class="selectbox-account">
             <option value="aktif" selected>Aktif</option>
             <option value="pasif">Pasif</option>
           </select>
@@ -48,7 +48,7 @@
       <div class="hr"></div>
       <li class="userdetails-items">
         <span class="userdetails-text">Bakiye Ekle/Çıkar</span>
-        <input v-model="updateAmount" type="number" min="0" class="set-inp" @focus="errorcredit = ''" required>
+        <input v-model="updateAmount" type="number" min="0" @focus="errorcredit = ''" required>
         <div v-if="this.done !== 'ucstart' && done !== 'ucdone'">
           <i class="fas fa-minus-square  fa-2x cl-r slbs" @click="updateCreditRemain('eksi')"/>
           <i class="fas fa-plus-square  fa-2x cl-g slbs" @click="updateCreditRemain('arti')"/>
@@ -81,7 +81,7 @@
     <section v-if="users.role === 'Superadmin' || users.role === 'Admin' || users.role === 'Subadmin'" class="user-id-section">
       <li class="userdetails-items">
         <span class="userdetails-text">Üye Limiti</span>
-        <input v-model="users.userlimit" type="number" class="selectbox box-set">
+        <input v-model="users.userlimit" type="number">
         <i v-if="done === 'limit'" class="fa fa-thumbs-up fa-2x cl-g slbs" />
         <i v-if="done !== 'limit'" class="fa fa-save fa-2x edit-save cl-f" @click="updateUserLimit(users.userlimit)"/>
       </li>

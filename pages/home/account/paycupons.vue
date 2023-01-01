@@ -2,8 +2,9 @@
   <div v-if="$store.state.auth.role === 'Admin'" class="pages">
     <div>
       <header class="title-2">
-        <span class="set-title">Kupon Ödeme</span>
-        <div class="quick-report cl-g">
+        <span class="account-page-title">Kupon Ödeme</span>
+        <span class="badge bg-g">{{betSummary.length}}</span>
+        <section class="quick-report cl-g">
           <div>
             <span class="mr10">Adet:</span>
             <span class="cl-y">{{totalCount}}</span>
@@ -16,8 +17,7 @@
             <span class="mr10">Kazanç:</span>
             <span class="cl-y">{{totalEarn | currency('₺', 2)}}</span>
           </div>
-        </div>
-        <span class="badge bg-g">{{betSummary.length}}</span>
+        </section>
       </header>
       <div class="bet-con">
         <ul>

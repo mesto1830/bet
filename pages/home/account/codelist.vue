@@ -1,7 +1,7 @@
 <template>
   <div class="pages">
     <header class="title-2">
-      <span class="set-title">Kod Listesi</span>
+      <span class="account-page-title">Kod Listesi</span>
     </header>
     <ul>
       <div class="code-list">

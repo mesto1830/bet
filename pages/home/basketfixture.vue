@@ -2,7 +2,7 @@
   <div class="pages main-page">
     <div class="odd-center">
       <div class="title-2">
-        <div class="title-2-left">
+        <section>
           <span class="title-icons"
             ><i
               class="fas fa-basketball-ball navbar-icons cl-o navbar-icons"
@@ -17,7 +17,7 @@
             title="Aç Kapa"
           />
           <i class="fas fa-globe fa-lg cp cl-o" @click="resetFav()" title="Hepsi"/>
-        </div>
+        </section>
         <input
           type="search"
           v-model="searchBox"

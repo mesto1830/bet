@@ -1,16 +1,14 @@
 <template>
   <div class="pages">
     <header class="title-2">
-      <div class="quick-report-con">
-        <span class="set-title mr20">Oyun Raporu</span>
-        <div class="input-con">
-         <input v-model="dateStart" type="date" class="input-date">
-          <input v-model="dateFinish" type="date" class="input-date">
-          <input type="button" value="ARA" class="btn btn-date" @click="filterAsDate()">
-        </div>
-          <input type="button" value="HEPSİ" class="btn btn-date" @click="resetFilter()">
-      </div>
-      <span class ="badge bg-g mr10">{{ gamelog.length }}</span>
+      <span class="account-page-title">Oyun Raporu</span>
+      <span class ="badge bg-g">{{ gamelog.length }}</span>
+      <section class="title-2-sub-item">
+       <input v-model="dateStart" type="date">
+        <input v-model="dateFinish" type="date">
+        <span class="badge bg-g" @click="filterAsDate()">ARA</span>
+        <span class="badge bg-g" @click="resetFilter()">HEPSİ</span>
+      </section>
     </header>
     <ul>
       <li class="title-ligth">

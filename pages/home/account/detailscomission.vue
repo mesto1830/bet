@@ -2,36 +2,35 @@
   <div class="pages" >
     <div>
       <header class="title-2">
-        <div class="quick-report-con">
-          <div class="input-con">
-          <input v-model="dateStart" type="date" class="input-date">
-            <input v-model="dateFinish" type="date" class="input-date">
-            <input type="button" value="ARA" class="btn btn-date bg-m" @click="filterAsDate()">
-          </div>
-          <div class="quick-report qrcom cl-g">
-            <span class="uci">
-              <span>Adet:</span>
-              <span class="cl-y">{{totalCount}}</span>
-            </span>
-            <span>
-              <span>Girdi:</span>
-              <span class="cl-y">{{totalAmount | currency('', 2)}}</span>
-            </span>
-            <span>
-              <span>Brüt Kazanc:</span>
-              <span class="cl-y">{{totalBaseEarn | currency('', 2)}}</span>
-            </span>
-            <span>
-              <span>Net Kazanc:</span>
-              <span class="cl-y">{{totalEarn | currency('', 2)}}</span>
-            </span>
-            <span>
-              <span>Kom:</span>
-              <span class="cl-y">{{calcComission | currency('', 2)}}</span>
-            </span>
-          </div>
-        </div>
+        <span class="account-page-title">Komisyon Detay</span>
         <span class="badge bg-g">{{betSummary.length}}</span>
+        <section class="title-2-sub-item">
+          <input v-model="dateStart" type="date">
+          <input v-model="dateFinish" type="date">
+          <span class="badge bg-g" @click="filterAsDate()">ARA</span>
+        </section>
+        <section class="title-2-sub-item">
+          <span>
+            <span>Adet:</span>
+            <span class="cl-y">{{totalCount}}</span>
+          </span>
+          <span>
+            <span>Girdi:</span>
+            <span class="cl-y">{{totalAmount | currency('', 2)}}</span>
+          </span>
+          <span>
+            <span>Brüt Kazanc:</span>
+            <span class="cl-y">{{totalBaseEarn | currency('', 2)}}</span>
+          </span>
+          <span>
+            <span>Net Kazanc:</span>
+            <span class="cl-y">{{totalEarn | currency('', 2)}}</span>
+          </span>
+          <span>
+            <span>Kom:</span>
+            <span class="cl-y">{{calcComission | currency('', 2)}}</span>
+          </span>
+        </section>
       </header>
       <div class="bet-con">
         <ul>

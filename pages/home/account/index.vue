@@ -2,44 +2,34 @@
   <div class="pages">
     <div>
       <header class="title-2">
-        <span class="set-title">Kuponlar</span>
-        <div class="quick-report-con">
-          <div v-if="!checkSuperadmin && !checkBoss" class="date-con">
-            <select
-              v-model="quickDate"
-              class="selectbox boxbet"
-              @change="quickDatefilter()"
-            >
+        <span class="account-page-title">Kuponlar</span>
+        <span class="badge bg-g">{{ betSummary.length }}</span>
+        <section v-if="!checkSuperadmin && !checkBoss">
+            <select v-model="quickDate" @change="quickDatefilter()">
               <option value="Tarih" disabled>Tarih</option>
               <option value="today">Bugün</option>
               <option value="yesterday">Dün</option>
             </select>
-          </div>
-          <div v-if="!checkSuperadmin && !checkBoss" class="input-con">
-            <input v-model="dateStart" type="date" class="input-date" />
-            <input v-model="dateFinish" type="date" class="input-date" />
-            <input
-              type="button"
-              value="ARA"
-              class="btn btn-date"
-              @click="filterAsDate()"
-            />
-          </div>
-          <div class="quick-report cl-g">
+          </section>
+          <section v-if="!checkSuperadmin && !checkBoss" class="title-2-sub-item">
+            <input v-model="dateStart" type="date" />
+            <input v-model="dateFinish" type="date" />
+            <span class="badge bg-g" @click="filterAsDate()">ARA</span>
+          </section>
+          <section>
             <div>
-              <span class="mr10">Adet:</span>
+              <span>Adet:</span>
               <span class="cl-y">{{ totalCount }}</span>
             </div>
             <div>
-              <span class="mr10">Girdi:</span>
+              <span>Girdi:</span>
               <span class="cl-y">{{ totalAmount | currency("", 2) }}</span>
             </div>
             <div>
-              <span class="mr10">Kazanç:</span>
+              <span>Kazanç:</span>
               <span class="cl-y">{{ totalEarn | currency("", 2) }}</span>
-            </div>
           </div>
-        </div>
+          </section>
       </header>
       <div class="bet-con">
         <ul>
@@ -972,6 +962,7 @@ export default {
         })
     },
     async filterAsDate () {
+      alert('')
       if (!this.dateFinish) {
         this.dateFinish = moment().add(1, 'days').format('YYYY-MM-DD')
       }

@@ -1,7 +1,7 @@
 <template>
   <div  v-if="$store.state.auth.role === 'Admin'" class="pages">
     <header class="title-2">
-      <span class="set-title">Sistem Zaman Ayarlar</span>
+      <span class="account-page-title">Sistem Zaman Ayarlar</span>
     </header>
     <ul>
       <li class="fix-li-warning">
