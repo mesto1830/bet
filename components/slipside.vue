@@ -2,9 +2,9 @@
   <div>
     <div class="title-2">
       <span class="title-icons">
-        <i class="fas fa-futbol navbar-icons cl-g"/>Kuponlar
+        <i class="fab fa-accusoft navbar-icons cl-y"/>Kuponlar
       </span>
-      <span v-if="$store.state.betslip" class="badge bg-g">{{slips.length}}</span>
+      <span v-if="$store.state.betslip" class="badge bg-y">{{slips.length}}</span>
     </div>
     <div class="slip-side-con">
       <form class="quick-bet-entry">

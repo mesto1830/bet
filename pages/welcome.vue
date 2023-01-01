@@ -32,7 +32,7 @@
         class="wel-links wlsi"
         exact-active-class="navbar-active"
       >
-        <i class="fas fa-bolt wel-icons cl-y" />
+        <i class="fas fa-lightbulb wel-icons cl-g" />
         <span class="wel-text">FUTBOL CANLI</span>
       </a>
       <a
@@ -48,7 +48,7 @@
         class="wel-links wlbi"
         exact-active-class="navbar-active"
       >
-        <i class="fas fa-bolt wel-icons cl-y" />
+        <i class="fas fa-lightbulb wel-icons cl-o" />
         <span class="wel-text">BASKET CANLI</span>
       </a>
       <a

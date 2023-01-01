@@ -2,16 +2,15 @@
   <div class="pages main-page">
     <aside class="left">
       <div class="title-2">
-        <div class="live-logo-con">
-          <span><i class="fas fa-bolt navbar-icons cl-y navbar-icons" />Basketbol</span>
-          <i class="fas fa-adjust navbar-icons ml10 cp" @click="isLeagueOpen = ! isLeagueOpen" title="Aç Kapa"/>
+        <div class="title-icons">
+          <span><i class="fas fa-lightbulb navbar-icons cl-o" />Basketbol</span>
         </div>
+        <i class="fas fa-adjust navbar-icons ml10 cp" @click="isLeagueOpen = ! isLeagueOpen" title="Aç Kapa"/>
         <span class="badge bg-o">{{liveListLength}}</span>
       </div>
       <div class="left-con">
         <div class="sblc">
-          <input  v-model="searchBox" type="search" @input="searchFilter()" class="searchbox-left" placeholder="ara...">
-          <i class="fa fa-search fa-lg cl-o sbi cp" @click="searchFilter()"/>
+          <input  v-model="searchBox" type="search" @input="searchFilter()" placeholder="ara...">
         </div>
          <details :open="isLeagueOpen" class="live-details" v-for="(list, index) in liveList" :key="index">
           <summary class="title-3">
@@ -43,8 +42,8 @@
     </aside>
     <div class="odd-center">
       <div class="title-2">
-        <span>
-          <i class="fas fa-futbol navbar-icons cl-g navbar-icons"/>CANLI PANO
+        <span class="title-icons">
+          <i class="fas fa-lightbulb navbar-icons cl-o"/>Canlı Pano
           </span>
       </div>
       <div class="odd-center-con">

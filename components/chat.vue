@@ -43,40 +43,15 @@ export default {
       chatUsers: {},
       userList: true,
       selectedUser: false,
-      chatName: '',
-      checkFullscreen: false,
+      chatName: ''
     }
   },
   mounted () {
     this.getChatUser()
-    if (screen.width < 480 || navigator.userAgent.indexOf('iPhone') != -1) {
-      this.openFullscreen()
-    }
   },
   methods: {
     deleteMsg(){
       this.$refs.deleteMsg.deleteMsg()
-    },
-    openFullscreen () {
-      this.checkFullscreen = true
-      let el = document.body
-      if (el.requestFullscreen) {
-        el.requestFullscreen()
-      } else if (el.mozRequestFullScreen) {
-        el.mozRequestFullScreen()
-      } else if (el.webkitRequestFullscreen) {
-        el.webkitRequestFullscreen()
-      }
-    },
-    closeFullscreen () {
-      this.checkFullscreen = false
-      if (document.exitFullscreen) {
-        document.exitFullscreen()
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen()
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen()
-      }
     },
     async getChatUser () {
       await axios.get('/api/home/chat').then((result) => {
@@ -106,9 +81,6 @@ export default {
       this.$store.commit('setOpenChat', false)
       this.setUserList ()
       socket.emit('closedusers', this.$store.state.auth.user)
-      if(this.checkFullscreen === true){
-        this.closeFullscreen()
-      }
     }
   }
 }

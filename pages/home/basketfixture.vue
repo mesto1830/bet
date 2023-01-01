@@ -2,98 +2,82 @@
   <div class="pages main-page">
     <div class="odd-center">
       <div class="title-2">
-        <div class="filter-con">
-          <div class="filter-icons-left">
-            <span class="title-icons"
-              ><i
-                class="fas fa-basketball-ball navbar-icons cl-o navbar-icons"
-              />Basketbol</span
-            >
-            <span class="badge bg-g ml10 mobil-length">{{
-              leaguesLength
-            }}</span>
-            <i
-              class="fas fa-adjust navbar-icons mobil-length cp"
-              @click="isLeagueOpen = !isLeagueOpen"
-              title="Aç Kapa"
-            />
-            <input
-              type="search"
-              v-model="searchBox"
-              @input="searchFilter()"
-              class="searchbox-left searchbox-soccer"
-              placeholder="ara..."
-            />
-            <i class="fa fa-search fa-lg cl-o sbi cp" @click="searchFilter()" />
-          </div>
-          <div class="filter-icons-mid">
-            <select
-              v-model="timeBox"
-              class="selectbox1 sct"
-              @change="filterAsTime()"
-            >
-              <option value="Saat" disabled>Saat</option>
-              <option value="all">Hepsi</option>
-              <option
-                :value="$moment().add(1, 'hours').format('YYYY-MM-DD HH:mm')"
-              >
-                1 Saat İçinde
-              </option>
-              <option
-                :value="$moment().add(2, 'hours').format('YYYY-MM-DD HH:mm')"
-              >
-                2 Saat İçinde
-              </option>
-              <option
-                :value="$moment().add(3, 'hours').format('YYYY-MM-DD HH:mm')"
-              >
-                3 Saat İçinde
-              </option>
-              <option
-                :value="$moment().add(4, 'hours').format('YYYY-MM-DD HH:mm')"
-              >
-                4 Saat İçinde
-              </option>
-              <option
-                :value="$moment().add(5, 'hours').format('YYYY-MM-DD HH:mm')"
-              >
-                5 Saat İçinde
-              </option>
-              <option
-                :value="$moment().add(6, 'hours').format('YYYY-MM-DD HH:mm')"
-              >
-                6 Saat İçinde
-              </option>
-            </select>
-            <select
-              v-model="dateBox"
-              class="selectbox1"
-              @change="filterAsDate()"
-            >
-              <option value="all">Hepsi</option>
-              <option value="Hepsi" disabled>Hepsi</option>
-              <option :value="$moment().format('YYYY-MM-DD')">Bugün</option>
-              <option :value="$moment().add(1, 'days').format('YYYY-MM-DD')">
-                Yarın
-              </option>
-              <option :value="$moment().add(2, 'days').format('YYYY-MM-DD')">
-                3. Gün
-              </option>
-              <option :value="$moment().add(3, 'days').format('YYYY-MM-DD')">
-                4. Gün
-              </option>
-            </select>
-          </div>
-          <i class="fas fa-globe fa-lg cp cl-o ml10" @click="resetFav()" title="Hepsi"/>
+        <div class="title-2-left">
+          <span class="title-icons"
+            ><i
+              class="fas fa-basketball-ball navbar-icons cl-o navbar-icons"
+            />Basketbol</span
+          >
+          <span class="badge bg-o">{{
+            leaguesLength
+          }}</span>
           <i
-            class="fas fa-adjust navbar-icons desktop-length cp"
+            class="fas fa-adjust navbar-icons"
             @click="isLeagueOpen = !isLeagueOpen"
-            title="Açık Liste"
+            title="Aç Kapa"
           />
+          <i class="fas fa-globe fa-lg cp cl-o" @click="resetFav()" title="Hepsi"/>
         </div>
-        <span class="badge bg-g mr10 ml10 desktop-length">{{
-          leaguesLength
-        }}</span>
+        <input
+          type="search"
+          v-model="searchBox"
+          @input="searchFilter()"
+          placeholder="ara..."
+        />
+        <select
+          v-model="timeBox"
+          @change="filterAsTime()"
+        >
+          <option value="Saat" disabled>Saat</option>
+          <option value="all">Hepsi</option>
+          <option
+            :value="$moment().add(1, 'hours').format('YYYY-MM-DD HH:mm')"
+          >
+            1 Saat İçinde
+          </option>
+          <option
+            :value="$moment().add(2, 'hours').format('YYYY-MM-DD HH:mm')"
+          >
+            2 Saat İçinde
+          </option>
+          <option
+            :value="$moment().add(3, 'hours').format('YYYY-MM-DD HH:mm')"
+          >
+            3 Saat İçinde
+          </option>
+          <option
+            :value="$moment().add(4, 'hours').format('YYYY-MM-DD HH:mm')"
+          >
+            4 Saat İçinde
+          </option>
+          <option
+            :value="$moment().add(5, 'hours').format('YYYY-MM-DD HH:mm')"
+          >
+            5 Saat İçinde
+          </option>
+          <option
+            :value="$moment().add(6, 'hours').format('YYYY-MM-DD HH:mm')"
+          >
+            6 Saat İçinde
+          </option>
+        </select>
+        <select
+          v-model="dateBox"
+          @change="filterAsDate()"
+        >
+          <option value="all">Hepsi</option>
+          <option value="Hepsi" disabled>Hepsi</option>
+          <option :value="$moment().format('YYYY-MM-DD')">Bugün</option>
+          <option :value="$moment().add(1, 'days').format('YYYY-MM-DD')">
+            Yarın
+          </option>
+          <option :value="$moment().add(2, 'days').format('YYYY-MM-DD')">
+            3. Gün
+          </option>
+          <option :value="$moment().add(3, 'days').format('YYYY-MM-DD')">
+            4. Gün
+          </option>
+        </select>
       </div>
       <div class="odd-center-con">
         <div>

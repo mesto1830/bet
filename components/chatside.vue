@@ -46,7 +46,7 @@
       </span>
       <span class="dropdown">
         <form @submit.prevent="sendAudio" enctype="multipart/form-data">
-          <span class="chat-btn btn-upload" @click="recordState()">
+          <span class="chat-btn btn-upload" @mousedown="startAudio()" @mouseup="stopAudio()" @touchstart="startAudio()" @touchend="stopAudio()">
             <i class="fas fa-microphone" :class="{ recordStartClass: recordStart }"></i>
           </span>
         </form>
@@ -107,7 +107,7 @@ export default {
       type: 'text',
       timeout: '',
       recorder: '',
-      recordStart: false
+      recordStart:false
     };
   },
   mounted() {
@@ -125,8 +125,9 @@ export default {
       this.scrollToBottom();
     });
     setTimeout(() => {
-      this.scrollToBottom();
-    }, 100);
+      this.scrollToBottom()
+    }, 100)
+    this.$refs.message.focus();
   },
   filters: {
     dateFormat: function (value) {
@@ -213,11 +214,12 @@ export default {
       this.emojiHandle = !this.emojiHandle;
     },
     addEmoji: function (id) {
+      this.$refs.message.focus();
       this.message += this.emoji[id].emoji;
       this.emojiHandle = false;
-      this.$refs.message.focus();
     },
     async selectImg(e) {
+      this.$refs.message.focus();
       let file = e.target.files[0];
       if (!file.type.match("image.*")) {
         alert("Resim formata uygun degil!");
@@ -235,7 +237,8 @@ export default {
       form.append('file', this.selectedImage, fileName)
       await axios.post('/api/home/addimage', form)
     },
-    async recordAudio() {
+    async startAudio() {
+      this.recordStart = true
       let device = navigator.mediaDevices.getUserMedia({ audio: true })
       let chunks = []
       device.then(stream => {
@@ -253,11 +256,8 @@ export default {
         this.recorder.start()
       }, 100)
     },
-    recordState() {
-      this.recordStart = !this.recordStart
-      this.recordStart ? this.recordAudio() : this.stopAudio()
-    },
     stopAudio() {
+      this.recordStart = false
       if (null != this.recorder) {
         try {
           if (this.recorder.state === 'inactive') return
@@ -267,7 +267,6 @@ export default {
           alert(RuntimeException)
         }
       }
-
     },
     async sendAudio() {
       let fileName = this.$store.state.auth.user + '-' + this.selectedUser + '-' + this.recordedAudio.size + '.mp3'

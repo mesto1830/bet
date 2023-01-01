@@ -16,7 +16,9 @@ module.exports = {
 
   css: [
     '~/assets/css/fontawesome-all.min.css',
-    '~/assets/css/main.css'
+    '~/assets/css/main.css',
+    '~/assets/css/mobile.css',
+    '~/assets/css/print.css'
   ],
 
   plugins: [
