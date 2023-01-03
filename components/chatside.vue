@@ -210,7 +210,8 @@ export default {
     clearTyping() {
       this.typing = "";
     },
-    emojiOpen: function () {
+    emojiOpen: function (e) {
+      this.$refs.message.focus();
       this.emojiHandle = !this.emojiHandle;
     },
     addEmoji: function (id) {
@@ -219,7 +220,6 @@ export default {
       this.emojiHandle = false;
     },
     async selectImg(e) {
-      this.$refs.message.focus();
       let file = e.target.files[0];
       if (!file.type.match("image.*")) {
         alert("Resim formata uygun degil!");
@@ -230,6 +230,7 @@ export default {
         this.selectedImage = file
         this.type = 'image'
       }
+      this.$refs.message.focus();
     },
     async sendImage() {
       let fileName = this.$store.state.auth.user + '-' + this.selectedUser + '-' + this.selectedImage.size + '.' + this.selectedImage.name.split('.').pop()
@@ -262,6 +263,8 @@ export default {
         try {
           if (this.recorder.state === 'inactive') return
           this.recorder.stop()
+          this.recorder.stream.getAudioTracks().forEach(function(track){track.stop();});
+          this.$refs.message.focus()
           clearInterval(this.timeout)
         } catch (RuntimeException) {
           alert(RuntimeException)

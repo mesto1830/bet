@@ -12,9 +12,7 @@
         </h1>
         <li class="userdetails-items po-r">
           <span class="userdetails-text">Kod Ad</span>
-          <div class="form-rows">
-            <input v-model="profile.nick" type="text" required />
-          </div>
+          <input v-model="profile.nick" type="text" class="input-half" required />
             <span class="info" title="Bu alan şifre sıfırlama için özeldir.Lütfen kimseyle paylaşmayınız!">?</span>
             <i class="fa fa-thumbs-up fa-2x cl-g slbs mb15" v-if="done === 'nick'"/>
             <i class="fa fa-save fa-2x  edit-save cl-f" v-if="done !== 'nick'" @click="updateProfile(profile.nick)"/>

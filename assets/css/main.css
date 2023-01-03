@@ -1,8 +1,20 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('./Roboto-Regular.woff2') format('woff2'),
+      url('./Roboto-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+  /* font-family: 'Roboto';
+  font-weight: 'regular';
+  font-display: swap;
+  letter-spacing: 0.2px; */
 }
 
 #app {
@@ -51,14 +63,19 @@ input[type="date"]{
   border-radius: 3px;
   border: 1px solid #ccc;
 }
-.register-input-text{
+.input-full,
+.input-half{
   width: 100%;
-  min-height: 38px;
+  min-height: 36px;
   border-radius: 6px;
   border: 1px solid #ccc;
   margin: 5px 0;
   padding-left: 10px;
   background-color: #f1f1f1;
+  font-size: 100%;
+}
+.input-half{
+  width: 50%; 
 }
 .fa-lg{font-size: 24px;}
 .fa-user{margin:0 10px;}
@@ -589,7 +606,7 @@ a {
   background-image: var(--main);
   min-height: 36px;
   height: 36px;
-  font-size: 14px;
+  font-size: 95%;
   padding-left: 20px;
 }
 
@@ -674,7 +691,6 @@ a {
   margin: auto;
   background-color: #00000060;
   border-radius: 10px;
-  overflow: hidden;
 }
 
 .resetpass-form {
@@ -3492,7 +3508,7 @@ summary:hover,
 .bet-inp {
   text-align: center;
   width: 96%;
-  height: 22px;
+  height: 26px;
   border: none;
   border-radius: 2px;
   outline: none;

@@ -82,11 +82,11 @@
             <section v-if="checkAdmin">
               <span class="title-3">Sistem Ayarları</span>
               <nuxt-link to="/home/account/generalset" class="title-list account-list" exact-active-class="account-active"> 
-                <i class="fas fa-user title-list-icon"/>
+                <i class="fas fa-key title-list-icon"/>
                 <span>Sistem Genel Ayarları</span>
               </nuxt-link>
               <nuxt-link to="/home/account/settime" class="title-list account-list" exact-active-class="settings-active">
-                <i class="fas fa-clock title-list-icon"/>
+                <i class="fas fa-key title-list-icon"/>
                 <span>Sistem Zaman Ayarları</span>
               </nuxt-link>
               <nuxt-link to="/home/account/setlimit" class="title-list account-list" exact-active-class="settings-active">

@@ -8,15 +8,15 @@
     <div class="account-con">
       <i class="fas fa-user-plus fa-4x cl-g big-icon"/>
       <form class="user-id-section" @submit.prevent="register">
-        <input type="text" v-model="setUser.user" class="register-input-text"  @focus="removeError()" maxlength = "50" required pattern="^[A-Za-z-0-9].{3,50}" oninvalid="this.setCustomValidity('Üye alanı en az 4 karekter ve ilk karekter Harf yada Sayı olabilir!')" oninput="setCustomValidity('')" placeholder="Ad">
-        <input type="text" v-model="setUser.nick" class="register-input-text" @focus="removeError()" maxlength = "50" required pattern="^[A-Za-z-0-9].{3,50}" oninvalid="this.setCustomValidity('Nick alanı en az 4 karekter ve ilk karekter Harf yada Sayı olabilir!')" oninput="setCustomValidity('')" placeholder="Kod Ad">
-        <input type="text" v-model="setUser.pass" class="register-input-text" maxlength = "50" required pattern=".{4,50}" oninvalid="this.setCustomValidity('Şifre en az 4 karekter olabilir!')" oninput="setCustomValidity('')" placeholder="Şifre">
+        <input type="text" v-model="setUser.user" class="input-full"  @focus="removeError()" maxlength = "50" required pattern="^[A-Za-z-0-9].{3,50}" oninvalid="this.setCustomValidity('Üye alanı en az 4 karekter ve ilk karekter Harf yada Sayı olabilir!')" oninput="setCustomValidity('')" placeholder="Ad">
+        <input type="text" v-model="setUser.nick" class="input-full" @focus="removeError()" maxlength = "50" required pattern="^[A-Za-z-0-9].{3,50}" oninvalid="this.setCustomValidity('Nick alanı en az 4 karekter ve ilk karekter Harf yada Sayı olabilir!')" oninput="setCustomValidity('')" placeholder="Kod Ad">
+        <input type="text" v-model="setUser.pass" class="input-full" maxlength = "50" required pattern=".{4,50}" oninvalid="this.setCustomValidity('Şifre en az 4 karekter olabilir!')" oninput="setCustomValidity('')" placeholder="Şifre">
         <div v-if="checkAdmin || checkSubadmin">
-          <input type="number" v-model="setUser.credit" class="register-input-text" min="50" required oninvalid="this.setCustomValidity('Minumum Kredi Tutarı 50 Tl olabilir!')" oninput="setCustomValidity('')" placeholder="Bakiye">
+          <input type="number" v-model="setUser.credit" class="input-full" min="50" required oninvalid="this.setCustomValidity('Minumum Kredi Tutarı 50 Tl olabilir!')" oninput="setCustomValidity('')" placeholder="Bakiye">
         </div>
         <section v-if="!checkAdmin && !checkSubadmin">
-          <span class="account-text">Üye Limiti</span>
-          <select v-model="setUser.userlimit" class="selectbox-account" required oninvalid="this.setCustomValidity('Limit alanı boş bırakılamaz!')" oninput="setCustomValidity('')">
+          <span class="account-text">Limit</span>
+          <select v-model="setUser.userlimit" class="input-full" required oninvalid="this.setCustomValidity('Limit alanı boş bırakılamaz!')" oninput="setCustomValidity('')">
             <option value="5" selected>5</option>
             <option value="10">10</option>
             <option value="15">15</option>
@@ -32,8 +32,8 @@
             <span class="customer-text">Gold Bayi</span>
           </section>
           <section v-if="setUser.customer">
-            <span class="account-text">Üye Limiti</span>
-            <select v-model="setUser.userlimit" class="selectbox-account" required oninvalid="this.setCustomValidity('Limit alanı boş bırakılamaz!')" oninput="setCustomValidity('')">
+            <span class="account-text">Limit</span>
+            <select v-model="setUser.userlimit" class="input-full" required oninvalid="this.setCustomValidity('Limit alanı boş bırakılamaz!')" oninput="setCustomValidity('')">
               <option value="5" selected>5</option>
               <option value="10">10</option>
               <option value="15">15</option>
