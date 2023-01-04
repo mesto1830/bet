@@ -1,5 +1,5 @@
 <template>
-  <div class="pages">
+  <div class="pages full-width">
     <header class="title-2">
       <span class="account-page-title">Giriş/Çıkış Raporu</span>
       <span class ="badge bg-g">{{ loginLog.length }}</span>

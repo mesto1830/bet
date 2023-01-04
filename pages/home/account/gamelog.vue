@@ -1,5 +1,5 @@
 <template>
-  <div class="pages">
+  <div class="pages full-width">
     <header class="title-2">
       <span class="account-page-title">Oyun Raporu</span>
       <span class ="badge bg-g">{{ gamelog.length }}</span>

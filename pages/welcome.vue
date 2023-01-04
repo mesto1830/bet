@@ -119,7 +119,7 @@ export default {
         this.isLoader = false;
         this.errorMsg = "Baglanti Yok!";
       }
-    },
+    }
   },
 };
 </script>

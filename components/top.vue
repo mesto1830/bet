@@ -19,6 +19,9 @@
       <nuxt-link to="/welcome" class="navbar-links mobile" exact-active-class="navbar-active">
         <i class="fas fa-list navbar-icons cl-w" />
       </nuxt-link>
+      <div v-if="adminIcon" class="navbar-links mobile" @click="handleAdminMenu()" exact-active-class="navbar-active">
+        <i class="fas fa-user navbar-icons cl-w" />
+      </div>
       <nuxt-link to="" class="navbar-logout cl-r" @click.native="logout" title="Çıkış">
         <i v-if="!isLoader" class="fas fa-sign-out-alt fa-2x" />
         <img v-if="isLoader" src="~/static/img/loader.gif" class="mt10" width="50" alt="" />
@@ -41,6 +44,7 @@ export default {
       multiLogin: this.$store.state.auth.multilogin,
       lastMsgCount: 0,
       isNewMsg: false,
+      adminIcon:false
     };
   },
   mounted() {
@@ -50,6 +54,7 @@ export default {
       this.$store.commit("setMsgCount", this.lastMsgCount);
     });
     this.getMsgCount();
+    this.$route.name == 'home-account' ? this.adminIcon = true : this.adminIcon = false
   },
   computed: {
     lastMsg() {
@@ -114,7 +119,9 @@ export default {
       this.$store.commit("setOpenChat", true);
       this.isNewMsg = false;
     },
-  },
-  components: { Navbar },
+    handleAdminMenu () {
+      this.$store.commit("setAdminMenu", true)
+    }
+  }
 };
 </script>

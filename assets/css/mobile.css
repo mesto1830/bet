@@ -220,10 +220,6 @@
     min-width: 100vw;
     overflow: auto;
   }
-  .home-router {
-    min-width: 1400px;
-    margin: 0;
-  }
   #top-menu-mini {
     display: none;
   }
@@ -236,5 +232,22 @@
   }
   .chat-btn{
     margin: 0 15px;
+  }
+  #admin-menu{display: none;}
+  #admin-menu-mobile{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 70%;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  #home-router{
+    width: 100vw;
+  }
+  .full-width{
+    min-width: 1400px;
   }
 }

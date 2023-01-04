@@ -13,7 +13,8 @@ export const state = () => ({
   betquick: false,
   fixtureid:'',
   newrate:'',
-  ratetoggle:false
+  ratetoggle:false,
+  adminmenu: false
 })
 export const mutations =  {
   setAuth: (state, payload) => {
@@ -82,6 +83,9 @@ export const mutations =  {
   },
   setRateToggle : (state, payload) => {
     state.ratetoggle = payload
+  },
+  setAdminMenu : (state, payload) => {
+    state.adminmenu = payload
   }
 }
 export const actions = {

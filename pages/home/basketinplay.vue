@@ -1,5 +1,5 @@
 <template>
-  <div class="pages main-page">
+  <div class="pages main-page full-width">
     <aside class="left">
       <div class="title-2">
         <div class="title-icons">

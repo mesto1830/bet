@@ -1,5 +1,5 @@
 <template>
-  <div v-if="checkRole" class="pages">
+  <div v-if="checkRole" class="pages full-width">
     <header class="title-2">
       <span class="account-page-title">Üyeler</span>
       <section>

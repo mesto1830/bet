@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$store.state.auth.role === 'Admin'" class="pages">
+  <div v-if="$store.state.auth.role === 'Admin'" class="pages full-width">
     <div>
       <header class="title-2">
         <span class="account-page-title">Kupon Ödeme</span>

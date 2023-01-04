@@ -758,7 +758,7 @@ a {
   justify-content: flex-start;
 }
 
-.home-router {
+#home-router {
   width: 100%;
   min-height: 500px;
   margin-top: 5px;
@@ -2584,7 +2584,9 @@ summary:hover,
   margin-top: 20px;
   font-size: 110%;
 }
-
+#account-router{
+  width: 100%;
+}
 .account-sidebar-title {
   display: flex;
   justify-content: center;
@@ -4524,4 +4526,5 @@ summary:hover,
 .mobile {
   display: none;
 }
-
+#admin-menu{display: block;}
+#admin-menu-mobile{display: none;}

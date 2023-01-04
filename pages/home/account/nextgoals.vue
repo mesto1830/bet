@@ -1,5 +1,5 @@
 <template>
-  <div class="pages">
+  <div class="pages full-width">
     <div>
       <header class="title-2">
         <span class="account-page-title">Sıradaki Goller</span>

@@ -51,7 +51,7 @@
           <img src="~/static/img/logo.png" alt="" width="65">
         </div>
         <div id="home-router-con">
-          <nuxt class="home-router" />
+          <nuxt id="home-router" />
         </div>
         
       </div>

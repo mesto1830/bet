@@ -35,9 +35,6 @@ export default {
   middleware: 'clientAuth',
   name: 'Chat',
   mixins: [Vue2Filters.mixin],
-  props: {
-    openChat: Boolean
-  },
   data () {
     return {
       chatUsers: {},

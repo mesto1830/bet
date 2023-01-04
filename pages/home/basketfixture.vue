@@ -1,5 +1,5 @@
 <template>
-  <div class="pages main-page">
+  <div class="pages main-page full-width">
     <div class="odd-center">
       <div class="title-2">
         <section>
