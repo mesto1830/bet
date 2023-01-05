@@ -70,8 +70,8 @@
           <i class="fas fa-minus-square  fa-2x cl-r slbs" @click="updateCreditRemain('eksi')"/>
           <i class="fas fa-plus-square  fa-2x cl-g slbs" @click="updateCreditRemain('arti')"/>
         </div>
-        <img v-if="done === 'ucstart'" src="~/static/img/loader.gif" alt=""  class="ml10">
-        <i v-if="done === 'ucdone'" class="fa fa-thumbs-up fa-2x cl-g slbs" />
+        <img v-if="done === 'ucstart'" src="~/static/img/loader.gif" alt=""  class="user-btn">
+        <i v-if="done === 'ucdone'" class="fa fa-thumbs-up fa-2x cl-g user-btn" />
       </li>
       <li v-if="errorcredit" class="userdetails-items cl-r">{{ errorcredit }}</li>
     </section>

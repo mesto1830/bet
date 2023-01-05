@@ -12,7 +12,7 @@
       </li>
       <div class="main-set-list">
         <section class="user-id-section">
-          <li class="set-li"><h3>Tüm Bayiler İçin Varsayılan Ayarlar</h3></li>
+          <li class="set-li set-li-title"><h3>Tüm Bayiler İçin Varsayılan Ayarlar</h3></li>
           <li class="set-li">
             <i class="fa fa-clock set-li-icon fa-lg"/>
             <span class="set-li-text">1.Devre Canlı Bahis Açılış</span>

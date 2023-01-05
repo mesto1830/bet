@@ -19,7 +19,7 @@
             <li class="set-li">
               <div class="mt5">0 yazıp Dişli simgesine tıklarsanız oranlar orjinale sıfırlanır.</div>
             </li>
-          <li class="set-li">
+          <li class="set-li set-li-rate">
             <input v-model="rateLimit" type="number" class="rate-inp" id="rateLimit">
             <i class="fas fa-save  fa-2x cl-g slbs" @click="updateLimit('limit')" title="Kaydet"/>
             <i class="fas fa-cog  fa-2x cl-f slbs" @click="updateLimit('reset')" title="Sıfırla"/>

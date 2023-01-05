@@ -3411,7 +3411,12 @@ summary:hover,
   width: 100%;
   margin: 5px;
 }
-
+.code-list-item > span > .badge {
+  margin-right: 10px;
+  background-color: brown;
+  color: #fff;
+  padding: 5px 10px;
+}
 .stlt {
   display: inline-flex;
   width: 220px;

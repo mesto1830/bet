@@ -250,4 +250,50 @@
   .full-width{
     min-width: 1400px;
   }
+  .userdetails-items{height: auto;}
+  .account-con{padding: 10px;}
+  .user-id-section{
+    height: auto;
+    padding: 10px;
+  }
+  .input-half{
+    width: 100%;
+    margin: 5px 0;
+  }
+  .userdetails-item{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .info{display: none;}
+  .customer-text{min-width: 80%;}
+  .details-account-inside{
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .daii{width: 100%;}
+  .fix-li-2, .set-li, .code-list-item{
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 3px;
+    height: auto;
+  }
+  .fix-li-2 > .fas,
+  .set-li > .set-li-icon{display: none;}
+  .fix-li-2 > .fa,
+  .set-li > .fa{align-self: flex-end;}
+  .fix-li-2 > span, input{margin: 5px 0;}
+  .fix-li-2 > input,
+  .set-li > input{width: 100%;min-height: 38px;font-size: 120%;}
+  .set-li-title{text-align: center;padding: 10px;height: auto;}
+  .set-lb{min-width: 48px;}
+  .set-li-rate{
+    display: flex;
+    flex-direction: row;
+  }
+  .code-list-item > span {margin: 5px 0;}
 }
