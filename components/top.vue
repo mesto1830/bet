@@ -48,13 +48,13 @@ export default {
     };
   },
   mounted() {
+    this.$route.name.includes('account') ? this.adminIcon = true : this.adminIcon = false
     socket.on("msgcount", () => {
       const oldcount = this.$store.state.msgcount;
       this.lastMsgCount = oldcount + 1;
-      this.$store.commit("setMsgCount", this.lastMsgCount);
+      this.$store.commit("setMsgCount", this.lastMsgCount)
     });
-    this.getMsgCount();
-    this.$route.name == 'home-account' ? this.adminIcon = true : this.adminIcon = false
+    this.getMsgCount()
   },
   computed: {
     lastMsg() {
