@@ -8,7 +8,7 @@
       <div @click="openChatHandel()" title="Chat">
         <span v-if="lastMsg" class="msg-info hasMsg"><i class="fas fa-comments">{{ lastMsg }}</i></span>
         <span v-else class="msg-info"><i class="fas fa-comments"></i></span>
-      </div> 
+      </div>
       <div class="po-r" @click="setMultiLogin" title="Çoklu Oturum İzni">
         <i v-if="multiLogin" class="fas fa-users fa-2x cp cl-g" />
         <i v-else class="fas fa-users fa-2x cp cl-r" />
@@ -44,7 +44,7 @@ export default {
       multiLogin: this.$store.state.auth.multilogin,
       lastMsgCount: 0,
       isNewMsg: false,
-      adminIcon:false
+      adminIcon: false
     };
   },
   mounted() {
@@ -90,6 +90,7 @@ export default {
           if (result.data.message !== "null") {
             if (this.$store.state.msgcount !== result.data.message) {
               this.$store.commit("setMsgCount", result.data.message);
+              this.setNotify()
             } else {
               this.$store.commit("setMsgCount", "");
             }
@@ -100,7 +101,7 @@ export default {
     async setMultiLogin() {
       this.multiLogin = !this.multiLogin;
       await axios.post("/api/multilogin", { multilogin: this.multiLogin }).then(result => {
-        if(result.data.code == 200){
+        if (result.data.code == 200) {
           this.logout()
         }
       });
@@ -119,8 +120,41 @@ export default {
       this.$store.commit("setOpenChat", true);
       this.isNewMsg = false;
     },
-    handleAdminMenu () {
+    handleAdminMenu() {
       this.$store.commit("setAdminMenu", true)
+    },
+    async setNotify() {
+      const showNotification = () => {
+        const notification = new Notification('Bet Notification', {
+          body: 'Yeni mesajiniz var',
+          icon: '/icon.png'
+        });
+
+        setTimeout(() => {
+          notification.close();
+        }, 10 * 1000);
+        notification.addEventListener('click', () => {
+          this.openChatHandel()
+        });
+      }
+
+      const showError = () => {
+        const error = document.querySelector('.error');
+        error.style.display = 'block';
+        error.textContent = 'You blocked the notifications';
+      }
+
+      let granted = false;
+
+      if (Notification.permission === 'granted') {
+        granted = true;
+      } else if (Notification.permission !== 'denied') {
+        let permission = await Notification.requestPermission();
+        granted = permission === 'granted' ? true : false;
+      }
+
+      granted ? showNotification() : showError();
+
     }
   }
 };
