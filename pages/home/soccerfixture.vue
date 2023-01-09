@@ -481,7 +481,7 @@ export default {
     getRateToggle () {
       if(this.$store.state.ratetoggle){
         document.querySelectorAll('.rate-text').forEach(item => {
-          item.classList.remove('bg-f')
+          item.classList.remove('bg-g')
         })
       }
     }
@@ -686,10 +686,10 @@ export default {
     addSlip (...args) {
       const rateclass = event.target.className
       const parent = event.target.parentElement
-      event.target.classList.toggle('bg-f')
-      parent.querySelectorAll('.bg-f').forEach(item => {
-        item.classList.remove('bg-f')
-        event.target.classList.add('bg-f')
+      event.target.classList.toggle('bg-g')
+      parent.querySelectorAll('.bg-g').forEach(item => {
+        item.classList.remove('bg-g')
+        event.target.classList.add('bg-g')
       })
       this.$store.commit('setRateToggle', false)
       this.selectedId = true
@@ -716,7 +716,6 @@ export default {
       let st = ''
       if (args[2]) {
         st = moment(args[2].startdate).tz('Europe/Istanbul').format('YYYY-MM-DD HH:mm')
-        
       } else {
         st = moment(this.subTime).tz('Europe/Istanbul').format('YYYY-MM-DD HH:mm')
       }
@@ -752,7 +751,7 @@ export default {
               if (test === undefined) {
                 this.$store.commit('setSlips', this.slips)
               } else {
-                if (rateclass === 'ottli rate-text bg-f') {
+                if (rateclass === 'ottli rate-text bg-g') {
                   this.$store.commit('removeSlipItem', t)
                   if (this.$store.state.slips < 1) {
                     this.$store.commit('setBetSlip', false)

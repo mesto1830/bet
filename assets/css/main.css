@@ -1948,7 +1948,7 @@ summary::-webkit-details-marker {
   padding: 2px 5px;
   color: #fff;
   border-radius: 2px;
-  background-color: #009688;
+  background-color: var(--child1);
 }
 
 .quick-amount {
@@ -4432,7 +4432,7 @@ summary:hover,
 }
 
 .bg-y {
-  background-color: #c9c93a;
+  background-color: #ffc722;
   color: #000;
 }
 
