@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 mongoose.set('strictQuery', true)
-const db = mongoose.connect(process.env.mongo_url,{
+const db = mongoose.connect(process.env.MONGO_URL,{
   useNewUrlParser:true
 }).then(()=>{
   console.log('Connected')
